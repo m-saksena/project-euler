@@ -18,12 +18,15 @@
  
  */
 
-// THIS WAS SOLVED WITHOUT USING STRING FUNCTIONS
 
 
 #include <iostream>
 #include "math.h"
 using namespace std;
+
+
+// NOTE: THIS WAS SOLVED WITHOUT USING STRING FUNCTIONS!
+
 
 
 //------------------LENGTH CHECKING------------------// //working!
