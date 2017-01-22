@@ -18,7 +18,7 @@
  
  */
 
-// THIS WAS SOLVED WITHOUT USING STRING FUNCTIONS 
+// THIS WAS SOLVED WITHOUT USING STRING FUNCTIONS
 
 
 #include <iostream>
@@ -29,10 +29,10 @@ using namespace std;
 //------------------LENGTH CHECKING------------------// //working!
 int lengthA (long A)
 {
-        
+    
     int digits = 0;
     
-    while (A > 1)
+    while (A > 0)
     {
         A = A/10;
         digits++;
@@ -44,91 +44,96 @@ int lengthA (long A)
 
 
 //---------finding the nTH DIGIT of an input number 'A'------------------//
-int nDigit(long A, int n)
-{
 
- int nDigit(long A, int n)
-{
-    int nDigit = 0;
-    long base = pow(10,n-1);
-    
-    nDigit = (int) A % base;
-    
-    
-    return nDigit;
-};
-
-
-
-//---------------PALINDROME CHECKING-----------------
-//function to check whether a number is a palindrome
-bool isPal(long A)
-{
-    int leftDigit = 0;
-    int rightDigit = 0;
-    
-    int digits = lengthA(A);
-    for (int n = digits; n >= digits/2 - 1 ; n--)
+    int nDigit(long A, int n)
     {
-        leftDigit = nDigit(A, n);
-        rightDigit = nDigit(A, digits - n + 1);
+        int nDigit = 0;
+        int digits = lengthA(A);
+        long base = pow(10, digits - n);
         
-        if  ( leftDigit !=  rightDigit )
+        nDigit =  (int) A/base % 10 ;
+        
+        return nDigit;
+    };
+    
+    
+    
+    //---------------PALINDROME CHECKING-----------------
+    //function to check whether a number is a palindrome
+    bool isPal(long A)
+    {
+
+        int leftDigit = 0;
+        int rightDigit = 0;
+        
+        int digits = lengthA(A);
+        for (int n = digits; n >= digits/2 - 1 ; n--)
+        {
+            leftDigit = nDigit(A, n);
+            rightDigit = nDigit(A, digits - n + 1);
+            
+            if  ( leftDigit !=  rightDigit )
+            {
+                
+                return false;
+            }
+            
+        }
+        
+        
+        return true;
+        
+    };
+    
+    //---------------2 x 3-DIGIT FACTOR CHECKING-----------------
+    //function to check whether a number has 2 3-digit factors
+    // if it does, the function returns "true" (1) and then prints out the factors
+    bool factor(long A)
+    {
+        
+        for (long i = sqrt(A) + 1; i > 99; i--)
+        {
+            if (A % i == 0)
+            {
+                //our factors of A are 'i' and 'A/i'
+                if ( lengthA(i) == 3 and lengthA(A/i) == 3)
+                {
+                    cout << "\nFactor 1: " << i;
+                    cout << "\nFactor 2: " << A/i;
+                    return 1;
+                    //break;
+                }
+                
+            }
+            
+        }
+        
+        return 0;
+    };
+    
+    
+    
+    int main(int argc, const char * argv[])
+    
+    {
+        
+        ////---------Checking palindromes, and then checking if they have 2 x 3 digit factors. Start from 999*999 and decrement
+        
+        
+        
+        for (long num = 999*999; num > 100*100; num--)
         {
             
-            return false;
-        }
-        
-    }
-    
-    return true;
-    
-};
-
-//---------------2 x 3-DIGIT FACTOR CHECKING-----------------
-//function to check whether a number has 2 3-digit factors
-// if it does, the function returns "true" (1) and then prints out the factors
-bool factor(long A)
-{
-    
-    for (long i = sqrt(A) + 1; i > 99; i--)
-    {
-        if (A % i == 0)
-        {
-            if ( lengthA(i) == 3 and lengthA(A/i) == 3)
+            if (isPal(num))
             {
-                return 1;
-                break;
-            }
-
-        }
-        
-    }
-    
-    return 0;
-};
-
-
-
-int main(int argc, const char * argv[])
-
-{
-    
-    ////---------Checking palindromes, and then checking if they have 2 x 3 digit factors. Start from 999*999 and decrement
-    
-    
-
-    for (long num = 999*999; num > 100*100; num--)
-    {
-        if (isPal(num) == 1)
-        {
-            if (factor(num) == 1)
-            {
-                cout << "The highest palindrome is is : " << num;
-                break;
+                
+                if (factor(num))
+                {
+                    cout << "\nThe highest palindrome is is : " << num;
+                    break;
+                }
             }
         }
+        
+        
     }
-    
-
-}
