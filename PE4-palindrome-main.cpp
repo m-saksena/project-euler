@@ -110,9 +110,6 @@ bool factor(long A)
 
 
 
-
-
-
 int main(int argc, const char * argv[])
 
 {
@@ -130,24 +127,8 @@ int main(int argc, const char * argv[])
                 cout << "The highest palindrome is is : " << num;
                 break;
             }
-            
-        
         }
     }
     
-    
-    
-    
-    
+
 }
-
-
-
-
-
-
-
-
-
-
-
