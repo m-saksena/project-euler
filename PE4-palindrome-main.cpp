@@ -185,58 +185,6 @@ int main(int argc, const char * argv[])
 
 
 
-////-----------------------------------METHOD 1--------------------------------------------
-////---------Keeping i constant, then changing j, then changing i etc.
-//    for (long i = 999; i > 100; i--)
-//    {
-//        for (long j = 999; j > 100; j--)
-//        {
-//            if ( isPal(i*j) == 1 )
-//            {
-//                cout << "The largest palindrome product is: " << i*j;
-//                cout << endl;
-//                cout << "The numbers are: " << i << " and " << j;
-//                cout << endl;
-//
-//                return 0;
-//            }
-//
-//        }
-//    }
-
-
-
-////-----------------------------------METHOD 2--------------------------------------------
-////--------Alternating i and j increments (999*999, 999*998, 998*998, 997*998 etc)
-//    int i = 999, j = 999;
-//
-//    while (i > 100 and j > 100)
-//    {
-//        if ( isPal(i*j) == 1 )
-//        {
-//            cout << "The largest palindrome product is: " << i*j;
-//            cout << endl;
-//            cout << "The numbers are: " << i << " and " << j;
-//            cout << endl;
-//
-//            break;
-//        }
-//
-//
-//
-//        if (i == j)
-//        {
-//            i--;
-//        }
-//
-//        else if (i < j)
-//        {
-//            j--;
-//        }
-//
-//    }
-
-
 
 
 
