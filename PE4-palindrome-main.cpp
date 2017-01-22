@@ -63,6 +63,7 @@ int nDigit(long A, int n)
 //---------------PALINDROME CHECKING-----------------
 //function to check whether a number is a palindrome
 bool isPal(long A)
+{
     int leftDigit = 0;
     int rightDigit = 0;
     
