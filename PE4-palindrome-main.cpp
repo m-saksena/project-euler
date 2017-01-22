@@ -18,6 +18,7 @@
  
  */
 
+// THIS WAS SOLVED WITHOUT USING STRING FUNCTIONS 
 
 
 #include <iostream>
@@ -28,76 +29,30 @@ using namespace std;
 //------------------LENGTH CHECKING------------------// //working!
 int lengthA (long A)
 {
-    //    //Method 1: Dividing by powers of 10 method
-    
-    
-    int maxDigits = 10;
-    
-    
-    int digits = 1; //initializing digits
-    
-    for (int i = 1 ; i < maxDigits ; i++)
         
+    int digits = 0;
+    
+    while (A > 1)
     {
-        if ( A >=  (  pow( 10, (maxDigits - i) )  )   )
-        {
-            digits =  digits + (maxDigits - i);
-            
-            return digits;
-            
-            //goto stop;
-        };
-        
-        
-        
-        
-        //    /*
-        //    //Method 2: Log method//
-        //    lenA = floor( log10(A) ) + 1; //floor rounds down
-        //    */
-        //
-        
-        
+        A = A/10;
+        digits++;
     }
-    
-    //stop:
-    
     
     return digits;
 }
 
 
 
-//------------------FIRST DIGIT------------------// //working!
-int firstDigit(long A)
-{
-    int fDigit;
-    fDigit = A / pow(10, ( lengthA(A) - 1 ) );
-    
-    
-    return fDigit;
-    
-};
-
-
-//------------------nTH DIGIT------------------// WORKING!
+//---------finding the nTH DIGIT of an input number 'A'------------------//
 int nDigit(long A, int n)
 {
+
+ int nDigit(long A, int n)
+{
     int nDigit = 0;
-    int digits = lengthA(A);
+    long base = pow(10,n);
     
-    for (int i = 1; n <= digits; i++)
-    {
-        nDigit = (int) (A % 10);
-        
-        if (i == n)
-        {
-            break;
-        }
-        
-        A = A / 10;
-        
-    }
+    nDigit = (int) A % base;
     
     
     return nDigit;
@@ -157,7 +112,6 @@ int main(int argc, const char * argv[])
 
 {
     
-    ////-----------------------------------METHOD 3--------------------------------------------
     ////---------Checking palindromes, and then checking if they have 2 x 3 digit factors. Start from 999*999 and decrement
     
     
