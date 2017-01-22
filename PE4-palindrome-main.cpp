@@ -50,7 +50,7 @@ int nDigit(long A, int n)
  int nDigit(long A, int n)
 {
     int nDigit = 0;
-    long base = pow(10,n);
+    long base = pow(10,n-1);
     
     nDigit = (int) A % base;
     
@@ -63,12 +63,16 @@ int nDigit(long A, int n)
 //---------------PALINDROME CHECKING-----------------
 //function to check whether a number is a palindrome
 bool isPal(long A)
-{
-    int digits = lengthA(A);
+    int leftDigit = 0;
+    int rightDigit = 0;
     
+    int digits = lengthA(A);
     for (int n = digits; n >= digits/2 - 1 ; n--)
     {
-        if  ( nDigit(A, n) !=  nDigit(A, digits - n + 1) )
+        leftDigit = nDigit(A, n);
+        rightDigit = nDigit(A, digits - n + 1);
+        
+        if  ( leftDigit !=  rightDigit )
         {
             
             return false;
